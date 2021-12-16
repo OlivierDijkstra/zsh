@@ -1,5 +1,6 @@
 #!/bin/zsh
 # Loop through all files and folders in the cache path depth 1
+echo "🚀 Cleaning cache..."
 for file in $(find ~/Library/Caches -maxdepth 1); do
 	# Get the actual file or folder name without path
 	fileName=$(basename "$file")
@@ -22,10 +23,17 @@ for file in $(find ~/Library/Caches -maxdepth 1); do
 	done
 done
 
-for file in "${filesToDelete[@]}"; do
+# If filesToDelete is empty
+if [ -z "$filesToDelete" ]; then
+	echo "✅ No caches to delete"
+else
+	for file in "${filesToDelete[@]}"; do
 	# If file is the exact path to the cache folder
-	if [[ ! "$file" == "$HOME/Library/Caches" ]]; then
-		echo "🗑️ Deleting $file"
-		rm -rf "$file"
-	fi
-done
+		if [[ ! "$file" == "$HOME/Library/Caches" ]]; then
+			echo "🗑️ Deleting $file"
+			rm -rf "$file"
+		fi
+	done
+	echo "✅ Done cleaning cache"
+fi
+
