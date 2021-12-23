@@ -1,3 +1,8 @@
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the start of this file.
+[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
+#### END FIG ENV VARIABLES ####
 export ZSH="/Users/olivierdijkstra/.oh-my-zsh"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"
@@ -35,7 +40,14 @@ alias cleancache="zsh ~/.oh-my-zsh/custom/scripts/clean_cache.sh"
 alias cleanbrew="zsh ~/.oh-my-zsh/custom/scripts/clean_homebrew.sh"
 alias launchagents="zsh ~/.oh-my-zsh/custom/scripts/launch_agents.sh"
 alias backupzsh="zsh ~/.oh-my-zsh/custom/scripts/backup_zsh.sh"
+alias backuphomebrew="zsh ~/.oh-my-zsh/custom/scripts/backup_homebrew.sh"
 
 eval $(thefuck --alias)
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the end of this file.
+[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
+#### END FIG ENV VARIABLES ####
+export PATH="/usr/local/opt/ruby/bin:$PATH"
