@@ -32,7 +32,7 @@ fi
 cp ~/.zshrc $gitPath
 
 # Copy the /Custom folder inside the ohMyZshPath to the gitPath
-cp -r "$ohMyZshPath/custom" "$gitPath"
+sudo cp -r "$ohMyZshPath/custom" "$gitPath"
 
 # commit changes to git
 cd $gitPath
