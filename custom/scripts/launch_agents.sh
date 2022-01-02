@@ -32,8 +32,9 @@ for file in $files; do
         continue
     fi
 
-    if [ $answer = "yes" || $answer = "y" ]; then
-        echo "Removing $fileName"
+    # If the user enters "y" or "yes" remove the file
+    if [[ $answer == "y" || $answer == "yes" ]]; then
+        echo "🗑️ Removing $fileName"
         rm ~/Library/LaunchAgents/$file
     fi
 done
